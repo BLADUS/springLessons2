@@ -10,9 +10,15 @@ public class TestSpring {
     public static void main(String[] args) {
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
 
-        Character character = context.getBean("character",Character.class);
+        Character character1 = context.getBean("character",Character.class);
+        Character character2 = context.getBean("character",Character.class);
 
-        character.launchAttack();
+        System.out.println("Уровень персонажа1 " + character1.getLevel());
+        System.out.println("Уровень персонажа2 " + character2.getLevel());
+        character2.setLevel(5);
+        System.out.println("Уровень персонажа1 " + character1.getLevel());
+        System.out.println("Уровень персонажа2 " + character2.getLevel());
+
         context.close();
     }
 }
